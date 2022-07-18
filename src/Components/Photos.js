@@ -9,47 +9,25 @@ export class Photos extends Component {
     };
   }
 
-  async componentDidMount() {
-    let url = `https://pixabay.com/api/?key=28669981-c4f5a419623d955d0831f140b&q=${this.props.category}&image_type=photo&pretty=true&orientation=horizontal&per_page=${this.props.perPage}`;
+  async update() {
+    let url = `https://pixabay.com/api/?key=28669981-c4f5a419623d955d0831f140b&q=${this.props.category}&image_type=photo&pretty=true&orientation=horizontal&per_page=${this.props.perPage}&page=${this.state.page}`;
     let data = await fetch(url);
     let parsedData = await data.json();
     this.setState({ hits: parsedData.hits, totalHits: parsedData.totalHits });
   }
 
-  handlePreviousClick = async () => {
-    let url = `https://pixabay.com/api/?key=28669981-c4f5a419623d955d0831f140b&q=${
-      this.props.category
-    }&image_type=photo&pretty=true&orientation=horizontal&per_page=${
-      this.props.perPage
-    }&page=${this.state.page - 1}`;
-    let data = await fetch(url);
-    let parsedData = await data.json();
+  async componentDidMount() {
+    this.update();
+  }
 
-    this.setState({
-      page: this.state.page - 1,
-      hits: parsedData.hits,
-    });
+  handlePreviousClick = async () => {
+    this.setState({ page: this.state.page - 1 });
+    this.update();
   };
 
   handleNextClick = async () => {
-    if (
-      this.state.page + 1 >
-      Math.ceil(this.state.totalHits / this.props.perPage)
-    ) {
-    } else {
-      let url = `https://pixabay.com/api/?key=28669981-c4f5a419623d955d0831f140b&q=${
-        this.props.category
-      }&image_type=photo&pretty=true&orientation=horizontal&per_page=${
-        this.props.perPage
-      }&page=${this.state.page + 1}`;
-      let data = await fetch(url);
-      let parsedData = await data.json();
-
-      this.setState({
-        page: this.state.page + 1,
-        hits: parsedData.hits,
-      });
-    }
+    this.setState({ page: this.state.page + 1 });
+    this.update();
   };
   render() {
     return (

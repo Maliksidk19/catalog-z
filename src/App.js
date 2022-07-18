@@ -60,13 +60,6 @@ export default function App() {
           path="/cars"
           element={<Photos key="cars" perPage={50} category="cars" />}
         />
-        {/* <Route
-          exact
-          path="/videos"
-          element={
-            <Photos key="videos" perPage={50} vid="all" category="null" />
-          }
-        /> */}
       </Routes>
       <Footer />
     </>
