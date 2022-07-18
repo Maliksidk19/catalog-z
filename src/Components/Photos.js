@@ -10,14 +10,16 @@ export class Photos extends Component {
   }
 
   async componentDidMount() {
-    let url = `https://pixabay.com/api/?key=28669981-c4f5a419623d955d0831f140b&q=house&image_type=photo&pretty=true&orientation=horizontal&per_page=${this.props.perPage}`;
+    let url = `https://pixabay.com/api/?key=28669981-c4f5a419623d955d0831f140b&q=${this.props.category}&image_type=photo&pretty=true&orientation=horizontal&per_page=${this.props.perPage}`;
     let data = await fetch(url);
     let parsedData = await data.json();
     this.setState({ hits: parsedData.hits, totalHits: parsedData.totalHits });
   }
 
   handlePreviousClick = async () => {
-    let url = `https://pixabay.com/api/?key=28669981-c4f5a419623d955d0831f140b&q=house&image_type=photo&pretty=true&orientation=horizontal&per_page=${
+    let url = `https://pixabay.com/api/?key=28669981-c4f5a419623d955d0831f140b&q=${
+      this.props.category
+    }&image_type=photo&pretty=true&orientation=horizontal&per_page=${
       this.props.perPage
     }&page=${this.state.page - 1}`;
     let data = await fetch(url);
@@ -35,7 +37,9 @@ export class Photos extends Component {
       Math.ceil(this.state.totalHits / this.props.perPage)
     ) {
     } else {
-      let url = `https://pixabay.com/api/?key=28669981-c4f5a419623d955d0831f140b&q=house&image_type=photo&pretty=true&orientation=horizontal&per_page=${
+      let url = `https://pixabay.com/api/?key=28669981-c4f5a419623d955d0831f140b&q=${
+        this.props.category
+      }&image_type=photo&pretty=true&orientation=horizontal&per_page=${
         this.props.perPage
       }&page=${this.state.page + 1}`;
       let data = await fetch(url);

@@ -1,13 +1,14 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function Navbar() {
   return (
     <>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <div className="container-fluid px-5">
-          <a href="/" className="navbar-brand">
+          <Link to="/" className="navbar-brand">
             <strong className="fs-4 text-info">Catalog-Z</strong>
-          </a>
+          </Link>
 
           <div className="dropdown">
             <button
@@ -21,44 +22,44 @@ export default function Navbar() {
 
             <ul className="dropdown-menu">
               <li>
-                <a href="/" className="dropdown-item">
+                <Link to="/science" className="dropdown-item">
                   Science
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/" className="dropdown-item">
+                <Link to="/technology" className="dropdown-item">
                   Technology
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/" className="dropdown-item">
+                <Link to="/business" className="dropdown-item">
                   Business
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/" className="dropdown-item">
+                <Link to="/sports" className="dropdown-item">
                   Sports
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/" className="dropdown-item">
+                <Link to="/nature" className="dropdown-item">
                   Nature
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/" className="dropdown-item">
+                <Link to="/men" className="dropdown-item">
                   Men
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/" className="dropdown-item">
+                <Link to="/women" className="dropdown-item">
                   Women
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/" className="dropdown-item">
-                  Clothing
-                </a>
+                <Link to="/cars" className="dropdown-item">
+                  Cars
+                </Link>
               </li>
             </ul>
           </div>
@@ -74,24 +75,24 @@ export default function Navbar() {
           <div className="collapse navbar-collapse me-5 pe-5" id="navmenu">
             <ul className="navbar-nav ms-auto">
               <li className="nav-item">
-                <a href="/" className="nav-link active">
+                <Link to="/" className="nav-link active">
                   Home
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a href="/" className="nav-link">
+                <Link to="/about" className="nav-link">
                   About
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a href="/" className="nav-link">
+                <Link to="/videos" className="nav-link">
                   Videos
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a href="/" className="nav-link">
+                <Link to="/contact" className="nav-link">
                   Contact
-                </a>
+                </Link>
               </li>
             </ul>
           </div>

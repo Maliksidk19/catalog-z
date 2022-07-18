@@ -1,13 +1,11 @@
 import React, { Component } from "react";
 import "../App.css";
-import Photos from "./Photos";
+// import Photos from "./Photos";
 
 export class Header extends Component {
   constructor() {
     super();
-    this.state = {
-      value: null,
-    };
+    this.state = {};
   }
   handleClick = () => {
     let val = document.getElementById("search").value;
@@ -15,10 +13,14 @@ export class Header extends Component {
       value: val,
     });
 
-    console.log(this.state.value);
-    if (!this.state.value === null) {
-      return <Photos cat={this.state.value} />;
+    if (!(this.state.value === undefined)) {
+      console.log(this.state.value);
     }
+
+    // console.log(this.state.value);
+    // if (!this.state.value === null) {
+    //   return <Photos cat={this.state.value} />;
+    // }
   };
   render() {
     return (
